@@ -55,3 +55,13 @@
   width: 350px;
   margin-left: 20px;
 }
+
+.pay-method {
+  display: flex;
+  flex-direction: column;
+}
+
+.pay-container {
+  display: flex;
+  gap: 30px;
+}

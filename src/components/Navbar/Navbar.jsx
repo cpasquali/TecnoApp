@@ -84,7 +84,9 @@ export const Navbar = ({ setCategory, setSearchValue }) => {
             </div>
           )}
         </li>
-        <Link to="/cart">CARRITO</Link>
+        <Link className="link" to="/cart">
+          CARRITO
+        </Link>
       </ul>
     </nav>
   );

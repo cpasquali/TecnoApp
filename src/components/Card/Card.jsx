@@ -15,12 +15,7 @@ export const Card = ({ product }) => {
   }, [cartItems]);
 
   const addProductToCart = (product) => {
-    const verify = cartItems.some((p) => p.title === product.title);
-    if (verify) {
-      alert("ya fue ingresado");
-    } else {
-      setCartItems((prevCart) => [...prevCart, product]);
-    }
+    setCartItems((prevCart) => [...prevCart, product]);
   };
 
   const imagen = product.thumbnail.replace("-I.jpg", "-X.jpg");
