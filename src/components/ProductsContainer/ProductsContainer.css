@@ -1,0 +1,38 @@
+.product-container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 40px;
+  margin-top: 80px;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.container-loader {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+}
+
+.loader {
+  width: 60px;
+  height: 60px;
+  border: 6px solid #007bff; /* Color del loader */
+  border-top-color: transparent; /* Crea el efecto de rotación */
+  border-radius: 50%;
+  animation: spin 1s linear infinite; /* Animación de rotación */
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

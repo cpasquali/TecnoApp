@@ -1,0 +1,57 @@
+.carrito {
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.product-cart-list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  gap: 20px;
+}
+
+.product-cart-card {
+  display: flex;
+  width: 60%;
+  padding-inline: 50px;
+  align-items: center;
+  justify-content: space-between;
+  background-color: white;
+  border: 1px solid rgba(26, 24, 24, 0.196);
+  border-radius: 12px;
+}
+
+.product-cart-card > span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-delete {
+  width: 100px;
+  height: 35px;
+  border-radius: 10px;
+  border: 1px solid rgba(26, 24, 24, 0.196);
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.btn-delete:hover {
+  transform: scale(1.1);
+}
+
+.btn-delete:active {
+  background-color: #c3c2c2;
+  transform: scale(0.98);
+}
+
+.product-card-title {
+  width: 350px;
+  margin-left: 20px;
+}

@@ -1,0 +1,9 @@
+.main-container {
+  display: flex;
+}
+
+.main-container.one-product {
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
