@@ -29,8 +29,8 @@ h2 {
 
 .arrow {
   display: inline-block;
-  height: 15px;
-  width: 15px;
+  height: 18px;
+  width: 18px;
   transition: transform 0.3s;
 }
 
