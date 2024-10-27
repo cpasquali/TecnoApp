@@ -45,7 +45,7 @@ export const Navbar = ({ setSearchValue }) => {
           <a className="dropdown-activate" onClick={toggleDropdown}>
             CATEGORIAS{" "}
             <img
-              src="public/chevron-abajo.png"
+              src="/chevron-abajo.png"
               className={`arrow ${isOpen ? "open" : ""}`}
               alt="Chevron"
             />
