@@ -6,7 +6,9 @@ import { useContext } from "react";
 export const Card = ({ product }) => {
   const { cartProducts, addProductToCart } = useContext(ProductsCartContext);
 
-  const imagen = product.thumbnail.replace("-I.jpg", "-X.jpg");
+  const imagen = product.thumbnail
+    .replace("-I.jpg", "-X.jpg")
+    .replace("http://", "https://");
 
   const isInCart = cartProducts.some((p) => p.title === product.title);
 
