@@ -1,9 +1,48 @@
-footer {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.footer {
   background-color: rgb(26, 24, 24);
   color: white;
-  height: 50px;
-  border-top: 1px solid #e0e0e0;
+  padding: 20px;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap; /* Permite que las secciones se ajusten en móviles */
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-section {
+  flex: 1 1 30%; /* Crecimiento, contracción y tamaño base */
+  margin: 10px; /* Espacio entre secciones */
+}
+
+.footer-section h4 {
+  margin-bottom: 10px;
+  font-size: 1.2em;
+}
+
+.footer-section p {
+  margin: 5px 0;
+}
+
+.footer-section a {
+  color: #f9a826; /* Color de los enlaces */
+  text-decoration: none;
+}
+
+.footer-section a:hover {
+  text-decoration: underline; /* Subrayar al pasar el mouse */
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column; /* Cambia a columna en pantallas pequeñas */
+  }
+
+  .footer-section {
+    flex: 1 1 100%; /* Cada sección ocupa el 100% */
+    text-align: center; /* Centrar texto en móviles */
+  }
 }

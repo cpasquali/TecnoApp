@@ -1,24 +1,14 @@
 import { Link } from "wouter";
 import "./Card.css";
-import { useState, useEffect } from "react";
+import { ProductsCartContext } from "../../context/CartProducts";
+import { useContext } from "react";
 
 export const Card = ({ product }) => {
-  const cartItemsLocalStorage = () => {
-    const data = localStorage.getItem("carritoDeCompra");
-    return data ? JSON.parse(data) : [];
-  };
-
-  const [cartItems, setCartItems] = useState(cartItemsLocalStorage());
-
-  useEffect(() => {
-    localStorage.setItem("carritoDeCompra", JSON.stringify(cartItems));
-  }, [cartItems]);
-
-  const addProductToCart = (product) => {
-    setCartItems((prevCart) => [...prevCart, product]);
-  };
+  const { cartProducts, addProductToCart } = useContext(ProductsCartContext);
 
   const imagen = product.thumbnail.replace("-I.jpg", "-X.jpg");
+
+  const isInCart = cartProducts.some((p) => p.title === product.title);
 
   return (
     <article className="product">
@@ -27,17 +17,15 @@ export const Card = ({ product }) => {
       <div className="product-price">
         <p>${parseFloat(product.price).toLocaleString()}</p>
         <button
-          className={`product-button ${
-            cartItems.some((p) => p.title === product.title) ? "in-cart" : ""
-          }`}
+          className={`product-button ${isInCart ? "in-cart" : ""}`}
           onClick={() => addProductToCart(product)}
+          aria-label={
+            isInCart ? "Producto en el carrito" : "Agregar al carrito"
+          }
         >
           <ion-icon name="cart-outline"></ion-icon>
         </button>
       </div>
-      <Link className={"btn-view"} to={`/product/${product.id}`}>
-        Ver Producto
-      </Link>
     </article>
   );
 };

@@ -1,10 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Card } from "../Card/Card";
+import { SelectCategorContext } from "../../context/SelectCategoryProducts";
 import "./ProductsContainer.css";
 
-export const ProductsContainer = ({ category, searchValue }) => {
+export const ProductsContainer = ({ searchValue }) => {
   const [productList, setProductList] = useState([]);
   const [isLoading, setIsloading] = useState(true);
+  const { category } = useContext(SelectCategorContext);
 
   const getData = async () => {
     let API_URL;

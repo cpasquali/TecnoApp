@@ -1,34 +1,34 @@
 import React, { useState } from "react";
 import { ProductsContainer } from "./ProductsContainer/ProductsContainer";
 import { Navbar } from "./Navbar/Navbar";
-import { Route, Switch, useLocation } from "wouter";
-import { ProductDetails } from "./ProductDetails/ProductDetails";
+import { Route, Switch } from "wouter";
 import { Footer } from "./Footer/Footer";
 import { Cart } from "./Cart";
+import { ProductsCartProvider } from "../context/CartProducts";
+import { SelectCategoryProvider } from "../context/SelectCategoryProducts";
 
 export const Layout = () => {
-  const [category, setCategory] = useState(null);
   const [searchValue, setSearchValue] = useState("");
 
   return (
     <>
-      <Navbar setCategory={setCategory} setSearchValue={setSearchValue} />
-      <div className="main-container">
-        <Switch>
-          <Route
-            path="/"
-            component={() => (
-              <ProductsContainer
-                category={category}
-                searchValue={searchValue}
+      <ProductsCartProvider>
+        <SelectCategoryProvider>
+          <Navbar setSearchValue={setSearchValue} />
+          <div className="main-container">
+            <Switch>
+              <Route
+                path="/"
+                component={() => (
+                  <ProductsContainer searchValue={searchValue} />
+                )}
               />
-            )}
-          />
-          <Route path="/product/:id" component={ProductDetails} />
-          <Route path="/cart" component={Cart} />
-        </Switch>
-      </div>
-      <Footer />
+              <Route path="/cart" component={Cart} />
+            </Switch>
+          </div>
+          <Footer />
+        </SelectCategoryProvider>
+      </ProductsCartProvider>
     </>
   );
 };

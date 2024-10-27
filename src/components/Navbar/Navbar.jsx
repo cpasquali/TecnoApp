@@ -1,10 +1,12 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link } from "wouter";
+import { SelectCategorContext } from "../../context/SelectCategoryProducts";
 import "./Navbar.css";
 
-export const Navbar = ({ setCategory, setSearchValue }) => {
+export const Navbar = ({ setSearchValue }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [value, setValue] = useState("");
+  const { setCategory } = useContext(SelectCategorContext);
 
   const toggleDropdown = () => {
     setIsOpen((prev) => !prev);
@@ -45,6 +47,7 @@ export const Navbar = ({ setCategory, setSearchValue }) => {
             <img
               src="public/chevron-abajo.png"
               className={`arrow ${isOpen ? "open" : ""}`}
+              alt="Chevron"
             />
           </a>
           {isOpen && (
