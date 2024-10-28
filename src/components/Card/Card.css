@@ -24,8 +24,10 @@
   margin: 8px 0;
   color: #333;
   overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* For WebKit browsers */
+  line-clamp: 2; /* Standard property for future compatibility */
+  -webkit-box-orient: vertical;
 }
 
 .product-button {

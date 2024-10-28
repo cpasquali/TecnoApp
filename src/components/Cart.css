@@ -16,24 +16,20 @@
 
 .product-cart-card {
   display: flex;
-  width: 70%;
+  width: 40%;
   padding: 30px;
   align-items: center;
   justify-content: space-between;
   background-color: white;
   border: 1px solid rgba(26, 24, 24, 0.196);
-  border-radius: 12px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s;
+  border-radius: 6px;
+
+  flex-direction: column;
 }
 
-.card-img-top {
+.product-image {
   height: 100px;
   width: 100px;
-}
-
-.product-cart-card:hover {
-  transform: translateY(-2px);
 }
 
 .product-cart-card > span {
@@ -46,39 +42,43 @@
   gap: 200px;
 }
 
-.btn-delete {
-  width: 100px;
-  height: 35px;
-  border-radius: 10px;
-  border: 1px solid rgba(26, 24, 24, 0.196);
-  cursor: pointer;
-  transition: background-color 0.2s, transform 0.2s;
-}
-
-.btn-delete:hover {
-  transform: scale(1.05);
-}
-
-.btn-delete:active {
-  background-color: #c3c2c2;
-  transform: scale(0.95);
-}
-
 .product-card-title {
   width: 350px;
-  margin-left: 20px;
   font-weight: bold;
   color: rgb(26, 24, 24);
+}
+
+.cant-product {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top: 1px solid rgba(26, 24, 24, 0.196);
+  border-bottom: 1px solid rgba(26, 24, 24, 0.196);
+  gap: 20px;
+}
+
+.btn-cant {
+  height: 80px;
+  width: 30px;
+  font-size: 20px;
+  background-color: transparent;
+  border: none;
+  border-right: 1px solid rgba(26, 24, 24, 0.196);
+  border-left: 1px solid rgba(26, 24, 24, 0.196);
+  cursor: pointer;
+}
+
+.cant-product p {
+  font-size: 20px;
 }
 
 .pay-container {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  padding: 20px;
-  border-radius: 12px;
-  width: 60%;
   padding: 30px;
+  border-radius: 6px;
+  width: 60%;
   margin-bottom: 20px;
   border: 1px solid rgba(26, 24, 24, 0.196);
   background-color: white;
@@ -126,75 +126,6 @@
   justify-content: center;
 }
 
-@media (max-width: 768px) {
-  .carrito {
-    margin-top: 50px;
-    gap: 30px;
-  }
-
-  .product-cart-list {
-    width: 100%;
-  }
-
-  .product-cart-card {
-    width: 90%;
-    padding: 20px;
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .product-card-title {
-    width: auto;
-    margin-left: 0;
-    font-weight: normal;
-  }
-
-  .pay-container {
-    flex-direction: column;
-    align-items: flex-start;
-    width: 90%;
-  }
-
-  .pay-method {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .btn-delete {
-    width: 80px;
-  }
-}
-
-@media (max-width: 480px) {
-  .btn-delete {
-    width: 70px;
-  }
-}
-
-.cant-product {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-top: 1px solid rgba(26, 24, 24, 0.196);
-  border-bottom: 1px solid rgba(26, 24, 24, 0.196);
-  gap: 20px;
-}
-
-.btn-cant {
-  height: 80px;
-  width: 30px;
-  font-size: 20px;
-  background-color: transparent;
-  border: none;
-  border-right: 1px solid rgba(26, 24, 24, 0.196);
-  border-left: 1px solid rgba(26, 24, 24, 0.196);
-  cursor: pointer;
-}
-
-.cant-product p {
-  font-size: 20px;
-}
-
 .payment-input {
   appearance: none;
   width: 20px;
@@ -221,4 +152,81 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+@media (max-width: 1450px) {
+  .product-info {
+    gap: 1px;
+  }
+}
+
+@media (max-width: 1010px) {
+}
+
+@media (max-width: 768px) {
+  .carrito {
+    margin-top: 50px;
+    gap: 30px;
+  }
+
+  .product-cart-list {
+    width: 100%;
+  }
+
+  .product-cart-card {
+    width: 90%;
+    padding: 20px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .product-card-title {
+    width: auto;
+    font-weight: normal;
+  }
+
+  .pay-container {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 90%;
+  }
+
+  .pay-method {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .btn-delete {
+    width: 80px;
+  }
+}
+
+@media (max-width: 480px) {
+  .btn-delete {
+    width: 70px;
+  }
+
+  .product-image {
+    height: 80px;
+    width: 80px;
+  }
+
+  .product-card-title {
+    font-size: 0.9em;
+    width: 100%;
+  }
+
+  .product-price {
+    font-size: 0.9em;
+  }
+
+  .btn-cant {
+    height: 40px;
+    width: 30px;
+    font-size: 16px;
+  }
+
+  .cant-product p {
+    font-size: 16px;
+  }
 }
