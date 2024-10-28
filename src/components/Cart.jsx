@@ -55,7 +55,9 @@ export const Cart = () => {
                 />
               </section>
             </section>
-            <h2>Total: ${finalPay.toFixed(2) * surcharge}</h2>
+            <h2>
+              Total: ${(finalPay * surcharge).toFixed(2).toLocaleString()}
+            </h2>
           </section>
         </section>
       )}

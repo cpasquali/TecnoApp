@@ -21,8 +21,7 @@ export const Footer = () => {
           <h4>Redes Sociales</h4>
           <p>Síguenos en nuestras redes sociales:</p>
           <p>
-            <a href="#">Facebook</a> | <a href="#">Instagram</a> |{" "}
-            <a href="#">Twitter</a>
+            <a>Facebook</a> | <a>Instagram</a> | <a>Twitter</a>
           </p>
         </div>
       </div>
