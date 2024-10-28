@@ -45,12 +45,6 @@ export const Cart = () => {
                   +
                 </button>
               </div>
-              <button
-                className="btn-delete"
-                onClick={() => deleteProductToCart(product)}
-              >
-                Eliminar
-              </button>
             </article>
           ))}
           <section className="pay-container">
@@ -84,7 +78,7 @@ export const Cart = () => {
               </section>
               <section className="total-price">
                 <h2> Total:</h2>
-                <h2>${(finalPay * surcharge).toFixed(2).toLocaleString()}</h2>
+                <h2>${(finalPay * surcharge).toLocaleString()}</h2>
               </section>
             </section>
           </section>

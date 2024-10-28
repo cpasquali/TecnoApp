@@ -175,7 +175,20 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  border-top: 1px solid rgba(26, 24, 24, 0.196);
+  border-bottom: 1px solid rgba(26, 24, 24, 0.196);
   gap: 20px;
+}
+
+.btn-cant {
+  height: 80px;
+  width: 30px;
+  font-size: 20px;
+  background-color: transparent;
+  border: none;
+  border-right: 1px solid rgba(26, 24, 24, 0.196);
+  border-left: 1px solid rgba(26, 24, 24, 0.196);
+  cursor: pointer;
 }
 
 .cant-product p {

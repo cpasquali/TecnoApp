@@ -67,13 +67,13 @@ export const ProductsCartProvider = ({ children }) => {
       const newCant =
         operation === "+" ? productInCart.cant + 1 : productInCart.cant - 1;
 
-      if (productInCart.cant <= 0) {
+      if (productInCart.cant > 0) {
+        return prevCart.map((p) => {
+          return p.id === product.id ? { ...p, cant: newCant } : p;
+        });
+      } else {
         return prevCart.filter((p) => p.id !== product.id);
       }
-
-      return prevCart.map((p) => {
-        return p.id === product.id ? { ...p, cant: newCant } : p;
-      });
     });
   };
 
