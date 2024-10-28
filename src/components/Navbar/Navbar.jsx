@@ -5,11 +5,16 @@ import "./Navbar.css";
 
 export const Navbar = ({ setSearchValue }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false); // Estado para el menú hamburguesa
   const [value, setValue] = useState("");
   const { setCategory } = useContext(SelectCategorContext);
 
   const toggleDropdown = () => {
     setIsOpen((prev) => !prev);
+  };
+
+  const toggleMenu = () => {
+    setMenuOpen((prev) => !prev);
   };
 
   const handleSearch = () => {
@@ -37,7 +42,7 @@ export const Navbar = ({ setSearchValue }) => {
           Buscar
         </button>
       </div>
-      <ul>
+      <ul className={`nav-links ${menuOpen ? "open" : ""}`}>
         <Link className="link" to="/" onClick={handleHome}>
           INICIO
         </Link>
@@ -91,6 +96,9 @@ export const Navbar = ({ setSearchValue }) => {
           CARRITO
         </Link>
       </ul>
+      <button className="hamburger" onClick={toggleMenu}>
+        ☰
+      </button>
     </nav>
   );
 };

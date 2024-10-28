@@ -1,19 +1,17 @@
 footer {
   margin: 0;
-  padding: 20px; /* Ajusta según sea necesario */
-  background-color: #f1f1f1; /* Cambia el color de fondo del footer */
-  position: relative;
+  padding: 20px;
   background-color: rgb(26, 24, 24);
   color: white;
-  height: 150px;
+  height: auto;
 }
 
-/* Si hay un contenedor envolvente, asegúrate de que no tenga márgenes */
 .footer-container {
   margin: 0;
   padding: 0;
   display: flex;
-  justify-content: space-between; /* Ajusta según el diseño que necesites */
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 .footer-section {
@@ -31,22 +29,22 @@ footer {
 }
 
 .footer-section a {
-  color: #f9a826; /* Color de los enlaces */
+  color: #f9a826;
   text-decoration: none;
 }
 
 .footer-section a:hover {
-  text-decoration: underline; /* Subrayar al pasar el mouse */
+  text-decoration: underline;
 }
 
-/* Responsivo */
 @media (max-width: 768px) {
   .footer-container {
-    flex-direction: column; /* Cambia a columna en pantallas pequeñas */
+    flex-direction: column;
+    align-items: center;
   }
 
   .footer-section {
-    flex: 1 1 100%; /* Cada sección ocupa el 100% */
-    text-align: center; /* Centrar texto en móviles */
+    flex: 1 1 100%;
+    text-align: center;
   }
 }

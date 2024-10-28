@@ -23,7 +23,6 @@
   background-color: white;
   border: 1px solid rgba(26, 24, 24, 0.196);
   border-radius: 6px;
-
   flex-direction: column;
 }
 
@@ -51,6 +50,7 @@
 .cant-product {
   display: flex;
   align-items: center;
+  height: 50px;
   justify-content: center;
   border-top: 1px solid rgba(26, 24, 24, 0.196);
   border-bottom: 1px solid rgba(26, 24, 24, 0.196);
@@ -58,7 +58,7 @@
 }
 
 .btn-cant {
-  height: 80px;
+  height: 50px;
   width: 30px;
   font-size: 20px;
   background-color: transparent;
@@ -160,12 +160,9 @@
   }
 }
 
-@media (max-width: 1010px) {
-}
-
 @media (max-width: 768px) {
   .carrito {
-    margin-top: 50px;
+    margin-top: 100px;
     gap: 30px;
   }
 
