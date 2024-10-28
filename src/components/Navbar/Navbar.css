@@ -99,7 +99,6 @@ ul li {
   background-color: #333;
 }
 
-/* Responsivo */
 @media (max-width: 768px) {
   .search-container {
     flex-direction: column;

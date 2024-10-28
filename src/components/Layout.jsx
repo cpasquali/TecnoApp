@@ -11,7 +11,7 @@ export const Layout = () => {
   const [searchValue, setSearchValue] = useState("");
 
   return (
-    <>
+    <div className="layout">
       <ProductsCartProvider>
         <SelectCategoryProvider>
           <Navbar setSearchValue={setSearchValue} />
@@ -29,6 +29,6 @@ export const Layout = () => {
           <Footer />
         </SelectCategoryProvider>
       </ProductsCartProvider>
-    </>
+    </div>
   );
 };

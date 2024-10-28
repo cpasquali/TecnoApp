@@ -19,7 +19,7 @@ export const Card = ({ product }) => {
       <div className="product-price">
         <p>${parseFloat(product.price).toLocaleString()}</p>
         <button
-          className={`product-button ${isInCart ? "in-cart" : ""}`}
+          className={`btn ${isInCart ? "btn-in-cart" : "btn-out-cart"}`}
           onClick={() => addProductToCart(product)}
           aria-label={
             isInCart ? "Producto en el carrito" : "Agregar al carrito"

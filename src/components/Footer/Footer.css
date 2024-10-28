@@ -1,15 +1,19 @@
-.footer {
+footer {
+  margin: 0;
+  padding: 20px; /* Ajusta según sea necesario */
+  background-color: #f1f1f1; /* Cambia el color de fondo del footer */
+  position: relative;
   background-color: rgb(26, 24, 24);
   color: white;
-  padding: 20px;
+  height: 150px;
 }
 
+/* Si hay un contenedor envolvente, asegúrate de que no tenga márgenes */
 .footer-container {
+  margin: 0;
+  padding: 0;
   display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  max-width: 1200px;
-  margin: 0 auto;
+  justify-content: space-between; /* Ajusta según el diseño que necesites */
 }
 
 .footer-section {

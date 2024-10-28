@@ -2,28 +2,10 @@
   text-align: center;
   border: 1px solid rgba(26, 24, 24, 0.196);
   border-radius: 12px;
-  width: 160px;
+  width: 200px;
   padding: 40px;
-  cursor: pointer;
   transition: all 0.2s;
   background-color: white;
-}
-
-.btn-view {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 10px;
-  margin-top: 10px;
-  border-radius: 10px;
-  text-decoration: none;
-  color: black;
-  border: 1px solid rgba(26, 24, 24, 0.196);
-  transition: transform 0.2s;
-}
-
-.btn-view:hover {
-  transform: scale(1.1);
 }
 
 .product:hover {
@@ -57,10 +39,6 @@
   transition: transform 0.2s;
 }
 
-.product-button.in-cart {
-  background-color: #c3c2c2;
-}
-
 .product-button:hover {
   transform: scale(1.1);
 }
@@ -82,4 +60,22 @@
 
 ion-icon {
   font-size: 20px;
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  margin-top: 15px;
+  padding: 10px;
+  cursor: pointer;
+  background-color: white;
+  border: 1px solid rgba(26, 24, 24, 0.196);
+}
+
+.btn.btn-in-cart {
+  background-color: rgb(23, 216, 23);
+  border: 1px solid rgba(56, 216, 16, 0.196);
+  color: white;
 }
