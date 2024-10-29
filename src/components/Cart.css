@@ -16,14 +16,13 @@
 
 .product-cart-card {
   display: flex;
-  width: 40%;
+  width: 60%;
   padding: 30px;
   align-items: center;
   justify-content: space-between;
   background-color: white;
   border: 1px solid rgba(26, 24, 24, 0.196);
   border-radius: 6px;
-  flex-direction: column;
 }
 
 .product-image {
@@ -171,7 +170,7 @@
   }
 
   .product-cart-card {
-    width: 90%;
+    width: 75%;
     padding: 20px;
     flex-direction: column;
     align-items: flex-start;
@@ -185,7 +184,7 @@
   .pay-container {
     flex-direction: column;
     align-items: flex-start;
-    width: 90%;
+    width: 75%;
   }
 
   .pay-method {
