@@ -40,25 +40,8 @@ export const ProductsCartProvider = ({ children }) => {
   };
 
   const deleteProductToCart = (product) => {
-    Swal.fire({
-      title: "¿Estás seguro?",
-      text: `¿Quieres eliminar ${product.title} del carrito?`,
-      icon: "warning",
-      showCancelButton: true,
-      confirmButtonText: "Sí, eliminar",
-      cancelButtonText: "Cancelar",
-    }).then((result) => {
-      if (result.isConfirmed) {
-        setCartProducts((prevCart) =>
-          prevCart.filter((p) => p.id !== product.id)
-        );
-        Swal.fire(
-          "Eliminado",
-          `${product.title} ha sido eliminado.`,
-          "success"
-        );
-      }
-    });
+    setCartProducts((prevCart) => prevCart.filter((p) => p.id !== product.id));
+    Swal.fire("Eliminado", `${product.title} ha sido eliminado.`, "success");
   };
 
   const handleCantProduct = (product, operation) => {
@@ -67,13 +50,9 @@ export const ProductsCartProvider = ({ children }) => {
       const newCant =
         operation === "+" ? productInCart.cant + 1 : productInCart.cant - 1;
 
-      if (productInCart.cant > 0) {
-        return prevCart.map((p) => {
-          return p.id === product.id ? { ...p, cant: newCant } : p;
-        });
-      } else {
-        return prevCart.filter((p) => p.id !== product.id);
-      }
+      return prevCart.map((p) => {
+        return p.id === product.id ? { ...p, cant: newCant } : p;
+      });
     });
   };
 

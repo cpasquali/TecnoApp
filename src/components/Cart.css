@@ -153,6 +153,101 @@
   transform: translate(-50%, -50%);
 }
 
+.btn-delete {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  padding: 10px;
+  cursor: pointer;
+  background-color: white;
+  border: 1px solid rgba(26, 24, 24, 0.196);
+}
+
+.btn-pay {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  padding: 10px;
+  cursor: pointer;
+  background-color: #f9a826;
+  border: none;
+  width: 200px;
+}
+
+.send-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 30px;
+  border-radius: 6px;
+  width: 60%;
+  margin-bottom: 20px;
+  border: 1px solid rgba(26, 24, 24, 0.196);
+  background-color: white;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9;
+}
+
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  width: 300px;
+  max-width: 90%;
+  text-align: center;
+}
+
+.address-input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.modal-buttons {
+  margin-top: 15px;
+}
+
+.btn-cancel,
+.btn-save {
+  padding: 8px 16px;
+  margin: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-cancel {
+  background-color: #ccc;
+}
+
+.btn-save {
+  background-color: #4caf50;
+  color: white;
+}
+
+.addres.disabled {
+  display: none;
+}
+
+.direccion-item {
+  color: #f9a826;
+}
+
 @media (max-width: 1450px) {
   .product-info {
     gap: 1px;
