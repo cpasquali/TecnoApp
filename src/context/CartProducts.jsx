@@ -19,7 +19,6 @@ export const ProductsCartProvider = ({ children }) => {
   const addProductToCart = (product) => {
     setCartProducts((prevCart) => {
       const cleanCart = prevCart.filter((p) => p !== undefined);
-
       const repetido = cleanCart.find((p) => p.id === product.id);
 
       if (repetido) {

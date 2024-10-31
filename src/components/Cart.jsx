@@ -80,6 +80,7 @@ export const Cart = () => {
                 <button
                   className="btn-cant"
                   onClick={() => handleCantProduct(product, "+")}
+                  disabled={product.cant === 10}
                 >
                   +
                 </button>
