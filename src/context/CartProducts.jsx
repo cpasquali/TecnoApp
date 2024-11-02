@@ -1,5 +1,6 @@
 import React, { createContext, useEffect, useState } from "react";
-import Swal from "sweetalert2";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export const ProductsCartContext = createContext();
 
@@ -26,12 +27,8 @@ export const ProductsCartProvider = ({ children }) => {
           p.id === product.id ? { ...p, cant: p.cant + 1 } : p
         );
       } else {
-        Swal.fire({
-          icon: "success",
-          title: "Producto añadido",
-          text: `${product.title} se ha añadido a tu carrito.`,
-          timer: 1500,
-          showConfirmButton: false,
+        toast.success(`${product.title} se ha añadido a tu carrito.`, {
+          autoClose: 1000,
         });
         return [...cleanCart, { ...product, cant: 1 }];
       }
@@ -40,7 +37,10 @@ export const ProductsCartProvider = ({ children }) => {
 
   const deleteProductToCart = (product) => {
     setCartProducts((prevCart) => prevCart.filter((p) => p.id !== product.id));
-    Swal.fire("Eliminado", `${product.title} ha sido eliminado.`, "success");
+    toast.error(`${product.title} ha sido eliminado.`, {
+      autoClose: 1000,
+      position: "top-left",
+    });
   };
 
   const handleCantProduct = (product, operation) => {
@@ -65,6 +65,7 @@ export const ProductsCartProvider = ({ children }) => {
       }}
     >
       {children}
+      <ToastContainer />
     </ProductsCartContext.Provider>
   );
 };
