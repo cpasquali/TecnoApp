@@ -29,6 +29,7 @@ export const ProductsCartProvider = ({ children }) => {
       } else {
         toast.success(`${product.title} se ha añadido a tu carrito.`, {
           autoClose: 1000,
+          position: "top-left",
         });
         return [...cleanCart, { ...product, cant: 1 }];
       }

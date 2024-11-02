@@ -29,7 +29,11 @@ export const Navbar = ({ setSearchValue }) => {
 
   return (
     <nav>
-      <h2>TECNOAPP</h2>
+      <img
+        src="public/logo_transparent.png"
+        alt="imagen del logo"
+        className="img-logo"
+      />
       <div className="search-container">
         <input
           type="search"

@@ -1,6 +1,8 @@
 import React, { useState, useContext } from "react";
-import { ProductsCartContext } from "../context/CartProducts";
+import { ProductsCartContext } from "../../context/CartProducts";
 import "./Cart.css";
+import { ProductCartCard } from "./ProductCartCard/ProductCartCard";
+import { ModalCart } from "./ModalCart/ModalCart";
 
 export const Cart = () => {
   const [surcharge, setSurcharge] = useState(1);
@@ -58,40 +60,12 @@ export const Cart = () => {
       ) : (
         <section className="product-cart-list">
           {cartProducts.map((product) => (
-            <article className="product-cart-card" key={product.id}>
-              <span className="product-image">
-                <img src={product.thumbnail} alt="foto de producto" />
-              </span>
-              <span className="product-info">
-                <p className="product-card-title">{product.title}</p>
-                <p className="product-price">
-                  ${(parseFloat(product.price) * product.cant).toLocaleString()}
-                </p>
-              </span>
-              <div className="cant-product">
-                <button
-                  className="btn-cant"
-                  onClick={() => handleCantProduct(product, "-")}
-                  disabled={product.cant === 1}
-                >
-                  -
-                </button>
-                <p>{product.cant}</p>
-                <button
-                  className="btn-cant"
-                  onClick={() => handleCantProduct(product, "+")}
-                  disabled={product.cant === 10}
-                >
-                  +
-                </button>
-              </div>
-              <button
-                className="btn-delete"
-                onClick={() => deleteProductToCart(product)}
-              >
-                <ion-icon name="trash-outline"></ion-icon>
-              </button>
-            </article>
+            <ProductCartCard
+              key={product.id}
+              product={product}
+              deleteProductToCart={deleteProductToCart}
+              handleCantProduct={handleCantProduct}
+            />
           ))}
 
           <section className="send-container">
@@ -171,76 +145,12 @@ export const Cart = () => {
           </section>
 
           {isModalOpen && (
-            <div className="modal">
-              <div className="modal-content">
-                <h3>Dirección de Envío</h3>
-                <input
-                  type="text"
-                  name="address"
-                  value={direccion.address}
-                  onChange={handleChange}
-                  placeholder="Direccion de Entrega"
-                  className="address-input"
-                />
-                <input
-                  type="text"
-                  name="postalCode"
-                  value={direccion.postalCode}
-                  onChange={handleChange}
-                  placeholder="Codigo Postal"
-                  className="address-input"
-                />
-                <input
-                  type="text"
-                  name="province"
-                  value={direccion.province}
-                  onChange={handleChange}
-                  placeholder="Provincia"
-                  className="address-input"
-                />
-                <input
-                  type="text"
-                  name="locality"
-                  value={direccion.locality}
-                  onChange={handleChange}
-                  placeholder="Localidad"
-                  className="address-input"
-                />
-                <h4>Datos de la persona autorizada a recibir el envío.</h4>
-                <input
-                  type="text"
-                  name="personName"
-                  value={direccion.personName}
-                  onChange={handleChange}
-                  placeholder="Nombre de la Persona Autorizada"
-                  className="address-input"
-                />
-                <input
-                  type="text"
-                  name="personLastName"
-                  value={direccion.personLastName}
-                  onChange={handleChange}
-                  placeholder="Apellido de la Persona Autorizada"
-                  className="address-input"
-                />
-                <input
-                  type="text"
-                  name="dni"
-                  value={direccion.dni}
-                  onChange={handleChange}
-                  placeholder="DNI de la Persona Autorizada"
-                  className="address-input"
-                />
-                <div className="modal-buttons">
-                  <button onClick={closeModal} className="btn-cancel">
-                    Cancelar
-                  </button>
-                  <button onClick={saveAddress} className="btn-save">
-                    Guardar
-                  </button>
-                </div>
-              </div>
-            </div>
+            <ModalCart
+              direccion={direccion}
+              handleChange={handleChange}
+              saveAddress={saveAddress}
+              closeModal={closeModal}
+            />
           )}
 
           <section className="pay-container">

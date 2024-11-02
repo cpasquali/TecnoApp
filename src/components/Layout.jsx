@@ -3,7 +3,7 @@ import { ProductsContainer } from "./ProductsContainer/ProductsContainer";
 import { Navbar } from "./Navbar/Navbar";
 import { Route, Switch } from "wouter";
 import { Footer } from "./Footer/Footer";
-import { Cart } from "./Cart";
+import { Cart } from "./Cart/Cart";
 import { ProductsCartProvider } from "../context/CartProducts";
 import { SelectCategoryProvider } from "../context/SelectCategoryProducts";
 
