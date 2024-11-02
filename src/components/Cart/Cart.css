@@ -30,6 +30,10 @@
   width: 100px;
 }
 
+.direccion-label {
+  color: #f9a826;
+}
+
 .product-cart-card > span {
   display: flex;
   align-items: center;
@@ -208,10 +212,6 @@
 
 .addres.disabled {
   display: none;
-}
-
-.direccion-item {
-  color: #f9a826;
 }
 
 @media (max-width: 1450px) {

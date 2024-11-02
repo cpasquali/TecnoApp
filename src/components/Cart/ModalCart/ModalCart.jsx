@@ -3,10 +3,26 @@ import "./ModalCart.css";
 
 export const ModalCart = ({
   direccion,
-  handleChange,
-  saveAddress,
-  closeModal,
+  setDireccion,
+  setModalIsOpen,
+  setFinishWrite,
+  finishWrite,
 }) => {
+  const closeModal = () => setModalIsOpen(false);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setDireccion((prevDireccion) => ({
+      ...prevDireccion,
+      [name]: value,
+    }));
+  };
+
+  const saveAddress = () => {
+    closeModal();
+    setFinishWrite(!finishWrite);
+  };
+
   return (
     <div className="modal">
       <div className="modal-content">

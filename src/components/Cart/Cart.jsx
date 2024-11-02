@@ -8,7 +8,6 @@ export const Cart = () => {
   const [surcharge, setSurcharge] = useState(1);
   const { cartProducts, deleteProductToCart, handleCantProduct } =
     useContext(ProductsCartContext);
-  const [isModalOpen, setIsModalOpen] = useState(false);
   const [finishWrite, setFinishWrite] = useState(false);
   const [direccion, setDireccion] = useState({
     address: "",
@@ -19,27 +18,12 @@ export const Cart = () => {
     personLastName: "",
     dni: "",
   });
+  const [modalIsOpen, setModalIsOpen] = useState(false);
 
   const finalPay = cartProducts.reduce(
     (accumulator, p) => accumulator + parseFloat(p.price) * p.cant,
     0
   );
-
-  const openModal = () => setIsModalOpen(true);
-  const closeModal = () => setIsModalOpen(false);
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setDireccion((prevDireccion) => ({
-      ...prevDireccion,
-      [name]: value,
-    }));
-  };
-
-  const saveAddress = () => {
-    closeModal();
-    setFinishWrite(!finishWrite);
-  };
 
   const classAdressContainer =
     direccion.address === null ||
@@ -71,85 +55,96 @@ export const Cart = () => {
           <section className="send-container">
             <h2>Envio</h2>
             <section className="addres-info">
-              <button onClick={openModal} className="btn-add-address">
+              <button
+                onClick={() => setModalIsOpen(true)}
+                className="btn-add-address"
+              >
                 Agregar Dirección de Envío
               </button>
               <section className={`addres ${classAdressContainer}`}>
                 <section className={`addres-info ${classAdressContainer}`}>
-                  <h3>
+                  <article>
                     {direccion.address && finishWrite ? (
-                      <span className="direccion-item">
-                        Dirección: {direccion.address}
-                      </span>
+                      <p className="direccion-item">
+                        <span className="direccion-label">Dirección:</span>{" "}
+                        {direccion.address}
+                      </p>
                     ) : (
                       ""
                     )}
-                  </h3>
-                  <h3>
+                  </article>
+                  <article>
                     {direccion.postalCode && finishWrite ? (
-                      <span className="direccion-item">
-                        Código Postal: {direccion.postalCode}
-                      </span>
+                      <p className="direccion-item">
+                        <span className="direccion-label">Código Postal:</span>{" "}
+                        {direccion.postalCode}
+                      </p>
                     ) : (
                       ""
                     )}
-                  </h3>
-                  <h3>
+                  </article>
+                  <article>
                     {direccion.province && finishWrite ? (
-                      <span className="direccion-item">
-                        Provincia: {direccion.province}
-                      </span>
+                      <p className="direccion-item">
+                        <span className="direccion-label">Provincia:</span>{" "}
+                        {direccion.province}
+                      </p>
                     ) : (
                       ""
                     )}
-                  </h3>
-                  <h3>
+                  </article>
+                  <article>
                     {direccion.locality && finishWrite ? (
-                      <span className="direccion-item">
-                        Localidad: {direccion.locality}
-                      </span>
+                      <p className="direccion-item">
+                        <span className="direccion-label">Localidad:</span>{" "}
+                        {direccion.locality}
+                      </p>
                     ) : (
                       ""
                     )}
-                  </h3>
-                  <h3>
+                  </article>
+                  <article>
                     {direccion.personName && finishWrite ? (
-                      <span className="direccion-item">
-                        Nombre: {direccion.personName}
-                      </span>
+                      <p className="direccion-item">
+                        <span className="direccion-label">Nombre:</span>{" "}
+                        {direccion.personName}
+                      </p>
                     ) : (
                       ""
                     )}
-                  </h3>
-                  <h3>
+                  </article>
+                  <article>
                     {direccion.personLastName && finishWrite ? (
-                      <span className="direccion-item">
-                        Apellido: {direccion.personLastName}
-                      </span>
+                      <p className="direccion-item">
+                        <span className="direccion-label">Apellido:</span>{" "}
+                        {direccion.personLastName}
+                      </p>
                     ) : (
                       ""
                     )}
-                  </h3>
-                  <h3>
+                  </article>
+                  <article>
                     {direccion.dni && finishWrite ? (
-                      <span className="direccion-item">
-                        DNI: {direccion.dni}
-                      </span>
+                      <p className="direccion-item">
+                        <span className="direccion-label">DNI:</span>{" "}
+                        {direccion.dni}
+                      </p>
                     ) : (
                       ""
                     )}
-                  </h3>
+                  </article>
                 </section>
               </section>
             </section>
           </section>
 
-          {isModalOpen && (
+          {modalIsOpen && (
             <ModalCart
               direccion={direccion}
-              handleChange={handleChange}
-              saveAddress={saveAddress}
-              closeModal={closeModal}
+              setDireccion={setDireccion}
+              setModalIsOpen={setModalIsOpen}
+              setFinishWrite={setFinishWrite}
+              finishWrite={finishWrite}
             />
           )}
 
