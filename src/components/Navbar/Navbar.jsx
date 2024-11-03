@@ -5,7 +5,7 @@ import "./Navbar.css";
 
 export const Navbar = ({ setSearchValue }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false); // Estado para el menú hamburguesa
+  const [menuOpen, setMenuOpen] = useState(false);
   const [value, setValue] = useState("");
   const { setCategory } = useContext(SelectCategorContext);
 
@@ -30,7 +30,7 @@ export const Navbar = ({ setSearchValue }) => {
   return (
     <nav>
       <img
-        src="public/logo_transparent.png"
+        src="logo_transparent.png"
         alt="imagen del logo"
         className="img-logo"
       />
