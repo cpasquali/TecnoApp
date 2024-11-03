@@ -47,7 +47,7 @@ export const Navbar = ({ setSearchValue }) => {
         </button>
       </div>
       <ul className={`nav-links ${menuOpen ? "open" : ""}`}>
-        <Link className="link" to="/" onClick={handleHome}>
+        <Link className="link" to="/home" onClick={handleHome}>
           INICIO
         </Link>
         <li>

@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Route, Switch } from "wouter";
 import { ProductsCartProvider } from "../context/CartProducts";
 import { SelectCategoryProvider } from "../context/SelectCategoryProducts";
-import { Footer, Cart, ProductsContainer, Navbar } from "./index";
+import { Footer, Cart, ProductsContainer, Navbar, LandingPage } from "./index";
 
 export const Layout = () => {
   const [searchValue, setSearchValue] = useState("");
@@ -11,19 +11,22 @@ export const Layout = () => {
     <div className="layout">
       <ProductsCartProvider>
         <SelectCategoryProvider>
-          <Navbar setSearchValue={setSearchValue} />
+          {window.location.pathname !== "/" && (
+            <Navbar setSearchValue={setSearchValue} />
+          )}
           <div className="main-container">
             <Switch>
               <Route
-                path="/"
+                path="/home"
                 component={() => (
                   <ProductsContainer searchValue={searchValue} />
                 )}
               />
               <Route path="/cart" component={Cart} />
+              <Route path="/" component={LandingPage} />
             </Switch>
           </div>
-          <Footer />
+          {window.location.pathname !== "/" && <Footer />}
         </SelectCategoryProvider>
       </ProductsCartProvider>
     </div>
