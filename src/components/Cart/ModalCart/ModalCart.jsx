@@ -65,15 +65,7 @@ export const ModalCart = ({
           name="personName"
           value={direccion.personName}
           onChange={handleChange}
-          placeholder="Nombre de la Persona Autorizada"
-          className="address-input"
-        />
-        <input
-          type="text"
-          name="personLastName"
-          value={direccion.personLastName}
-          onChange={handleChange}
-          placeholder="Apellido de la Persona Autorizada"
+          placeholder="Nombre y Apellido de la Persona Autorizada"
           className="address-input"
         />
         <input

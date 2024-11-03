@@ -1,11 +1,8 @@
-import React, { useState } from "react";
-import { ProductsContainer } from "./ProductsContainer/ProductsContainer";
-import { Navbar } from "./Navbar/Navbar";
+import { useState } from "react";
 import { Route, Switch } from "wouter";
-import { Footer } from "./Footer/Footer";
-import { Cart } from "./Cart/Cart";
 import { ProductsCartProvider } from "../context/CartProducts";
 import { SelectCategoryProvider } from "../context/SelectCategoryProducts";
+import { Footer, Cart, ProductsContainer, Navbar } from "./index";
 
 export const Layout = () => {
   const [searchValue, setSearchValue] = useState("");

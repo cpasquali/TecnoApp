@@ -1,4 +1,3 @@
-import { Link } from "wouter";
 import "./Card.css";
 import { ProductsCartContext } from "../../context/CartProducts";
 import { useContext } from "react";

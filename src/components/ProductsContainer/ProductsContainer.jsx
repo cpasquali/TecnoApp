@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Card } from "../Card/Card";
+import { Card } from "../index";
 import { SelectCategorContext } from "../../context/SelectCategoryProducts";
 import "./ProductsContainer.css";
 

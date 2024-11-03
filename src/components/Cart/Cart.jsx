@@ -1,11 +1,9 @@
+import "./Cart.css";
 import React, { useState, useContext } from "react";
 import { ProductsCartContext } from "../../context/CartProducts";
-import "./Cart.css";
-import { ProductCartCard } from "./ProductCartCard/ProductCartCard";
-import { ModalCart } from "./ModalCart/ModalCart";
+import { ProductCartCard, ModalCart } from "../index";
 
 export const Cart = () => {
-  const [surcharge, setSurcharge] = useState(1);
   const { cartProducts, deleteProductToCart, handleCantProduct } =
     useContext(ProductsCartContext);
   const [finishWrite, setFinishWrite] = useState(false);
@@ -15,7 +13,6 @@ export const Cart = () => {
     province: "",
     locality: "",
     personName: "",
-    personLastName: "",
     dni: "",
   });
   const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -31,10 +28,21 @@ export const Cart = () => {
     direccion.province === null ||
     direccion.locality === null ||
     direccion.personName === null ||
-    direccion.personLastName === null ||
     direccion.dni === null
       ? "disabled"
       : "";
+
+  const deleteAddresInfo = () => {
+    setDireccion({
+      address: "",
+      postalCode: "",
+      province: "",
+      locality: "",
+      personName: "",
+      dni: "",
+    });
+    setFinishWrite(false);
+  };
 
   return (
     <div className="carrito">
@@ -55,18 +63,25 @@ export const Cart = () => {
           <section className="send-container">
             <h2>Envio</h2>
             <section className="addres-info">
-              <button
-                onClick={() => setModalIsOpen(true)}
-                className="btn-add-address"
-              >
-                Agregar Dirección de Envío
-              </button>
+              {finishWrite ? (
+                <button onClick={deleteAddresInfo} className="btn-add-address">
+                  Eliminar Datos de Envio
+                </button>
+              ) : (
+                <button
+                  onClick={() => setModalIsOpen(true)}
+                  className="btn-add-address"
+                >
+                  Agregar Datos de Envio
+                </button>
+              )}
+
               <section className={`addres ${classAdressContainer}`}>
                 <section className={`addres-info ${classAdressContainer}`}>
                   <article>
                     {direccion.address && finishWrite ? (
                       <p className="direccion-item">
-                        <span className="direccion-label">Dirección:</span>{" "}
+                        <span className="direccion-label">Dirección:</span>
                         {direccion.address}
                       </p>
                     ) : (
@@ -76,7 +91,7 @@ export const Cart = () => {
                   <article>
                     {direccion.postalCode && finishWrite ? (
                       <p className="direccion-item">
-                        <span className="direccion-label">Código Postal:</span>{" "}
+                        <span className="direccion-label">Código Postal:</span>
                         {direccion.postalCode}
                       </p>
                     ) : (
@@ -86,7 +101,7 @@ export const Cart = () => {
                   <article>
                     {direccion.province && finishWrite ? (
                       <p className="direccion-item">
-                        <span className="direccion-label">Provincia:</span>{" "}
+                        <span className="direccion-label">Provincia:</span>
                         {direccion.province}
                       </p>
                     ) : (
@@ -96,7 +111,7 @@ export const Cart = () => {
                   <article>
                     {direccion.locality && finishWrite ? (
                       <p className="direccion-item">
-                        <span className="direccion-label">Localidad:</span>{" "}
+                        <span className="direccion-label">Localidad:</span>
                         {direccion.locality}
                       </p>
                     ) : (
@@ -106,18 +121,10 @@ export const Cart = () => {
                   <article>
                     {direccion.personName && finishWrite ? (
                       <p className="direccion-item">
-                        <span className="direccion-label">Nombre:</span>{" "}
+                        <span className="direccion-label">
+                          Nombre y Apellido:
+                        </span>
                         {direccion.personName}
-                      </p>
-                    ) : (
-                      ""
-                    )}
-                  </article>
-                  <article>
-                    {direccion.personLastName && finishWrite ? (
-                      <p className="direccion-item">
-                        <span className="direccion-label">Apellido:</span>{" "}
-                        {direccion.personLastName}
                       </p>
                     ) : (
                       ""
@@ -126,7 +133,7 @@ export const Cart = () => {
                   <article>
                     {direccion.dni && finishWrite ? (
                       <p className="direccion-item">
-                        <span className="direccion-label">DNI:</span>{" "}
+                        <span className="direccion-label">DNI:</span>
                         {direccion.dni}
                       </p>
                     ) : (
@@ -157,11 +164,10 @@ export const Cart = () => {
                     type="radio"
                     id="mercadoPago"
                     name="paymentMethod"
-                    onClick={() => setSurcharge(1.4)}
                     className="payment-input"
                   />
                   <label htmlFor="mercadoPago" className="payment-label">
-                    Mercado Pago
+                    Transferencia
                   </label>
                 </section>
                 <section className="method">
@@ -169,17 +175,16 @@ export const Cart = () => {
                     type="radio"
                     id="transferencia"
                     name="paymentMethod"
-                    onClick={() => setSurcharge(1)}
                     className="payment-input"
                   />
                   <label htmlFor="transferencia" className="payment-label">
-                    Transferencia
+                    Tarjeta de Credito - Debito
                   </label>
                 </section>
               </section>
               <section className="total-price">
                 <h2>Total:</h2>
-                <h2>${(finalPay * surcharge).toLocaleString()}</h2>
+                <h2>${finalPay.toLocaleString()}</h2>
               </section>
             </section>
             <button className="btn-pay">Comprar</button>
