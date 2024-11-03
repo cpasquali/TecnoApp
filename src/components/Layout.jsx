@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Route, Switch } from "wouter";
 import { ProductsCartProvider } from "../context/CartProducts";
 import { SelectCategoryProvider } from "../context/SelectCategoryProducts";
-import { Footer, Cart, ProductsContainer, Navbar, LandingPage } from "./index";
+import { Footer, Cart, ProductsContainer, Navbar, LandingPage } from "./Index";
 
 export const Layout = () => {
   const [searchValue, setSearchValue] = useState("");
