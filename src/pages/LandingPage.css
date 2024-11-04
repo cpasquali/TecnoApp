@@ -3,7 +3,9 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-top: 100px;
+  background-color: rgb(26, 24, 24);
+  color: white;
+  height: 100vh;
 }
 
 @keyframes fadeIn {
@@ -32,4 +34,29 @@
   border: 1px solid rgba(26, 24, 24, 0.196);
   text-decoration: none;
   color: black;
+}
+
+.landing-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+}
+
+.landing-header-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.landing-header-image {
+  height: 200px;
+  width: 200px;
+}
+
+@media (width<=627px) {
+  .landing-header {
+    flex-direction: column-reverse;
+  }
 }
