@@ -1,3 +1,4 @@
+import { Link } from "wouter";
 import "../App.css";
 
 export const LandingPage = () => {
@@ -7,12 +8,9 @@ export const LandingPage = () => {
       <p className="fade-in">
         Aquí puedes encontrar información sobre nuestro servicio.
       </p>
-      <button
-        className="btn-landing fade-in"
-        onClick={() => (window.location.href = "/home")}
-      >
+      <Link className="btn-landing fade-in" to="/home">
         Comenzar
-      </button>
+      </Link>
     </div>
   );
 };

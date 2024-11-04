@@ -11,9 +11,7 @@ export const Layout = () => {
     <div className="layout">
       <ProductsCartProvider>
         <SelectCategoryProvider>
-          {window.location.pathname !== "/" && (
-            <Navbar setSearchValue={setSearchValue} />
-          )}
+          <Navbar setSearchValue={setSearchValue} />
           <div className="main-container">
             <Switch>
               <Route
@@ -26,7 +24,7 @@ export const Layout = () => {
               <Route path="/" component={LandingPage} />
             </Switch>
           </div>
-          {window.location.pathname !== "/" && <Footer />}
+          <Footer />
         </SelectCategoryProvider>
       </ProductsCartProvider>
     </div>
