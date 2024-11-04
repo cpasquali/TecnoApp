@@ -1,20 +1,19 @@
 import { useState } from "react";
-import { Route, Switch } from "wouter";
+import { Route, Switch, useLocation } from "wouter";
 import { ProductsCartProvider } from "../context/CartProducts";
 import { SelectCategoryProvider } from "../context/SelectCategoryProducts";
 import { Footer, Cart, ProductsContainer, Navbar, LandingPage } from "./index";
 
 export const Layout = () => {
   const [searchValue, setSearchValue] = useState("");
+  const [location] = useLocation();
+  const isRoot = location === "/";
 
   return (
     <div className="layout">
       <ProductsCartProvider>
         <SelectCategoryProvider>
-          {window.location.pathname !== "/" && (
-            <Navbar setSearchValue={setSearchValue} />
-          )}
-
+          {!isRoot && <Navbar setSearchValue={setSearchValue} />}
           <div className="main-container">
             <Switch>
               <Route
@@ -27,7 +26,7 @@ export const Layout = () => {
               <Route path="/" component={LandingPage} />
             </Switch>
           </div>
-          {window.location.pathname !== "/" && <Footer />}
+          {!isRoot && <Footer />}
         </SelectCategoryProvider>
       </ProductsCartProvider>
     </div>
