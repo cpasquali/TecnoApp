@@ -1,5 +1,5 @@
 import { Link } from "wouter";
-import "../App.css";
+import "./LandingPage.css";
 
 export const LandingPage = () => {
   return (
