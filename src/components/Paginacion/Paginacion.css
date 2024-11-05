@@ -1,0 +1,27 @@
+.paginacion {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background-color: rgb(26, 24, 24);
+  border-bottom: 1px solid rgb(85, 85, 85);
+  gap: 10px;
+}
+
+.paginacion-item {
+  width: 50px;
+  height: 50px;
+  border-radius: 8px;
+  border: none;
+  transition: transform 0.2s;
+  cursor: pointer;
+}
+
+.paginacion-item:hover {
+  transform: scale(1.1);
+}
+
+.paginacion-item.active-button {
+  background-color: #f9a826;
+  transform: scale(0.9);
+}

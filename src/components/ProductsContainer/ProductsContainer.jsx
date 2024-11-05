@@ -3,7 +3,7 @@ import { Card } from "../index";
 import { SelectCategorContext } from "../../context/SelectCategoryProducts";
 import "./ProductsContainer.css";
 
-export const ProductsContainer = ({ searchValue }) => {
+export const ProductsContainer = ({ searchValue, currentPage }) => {
   const [productList, setProductList] = useState([]);
   const [isLoading, setIsloading] = useState(true);
   const { category } = useContext(SelectCategorContext);
@@ -11,12 +11,11 @@ export const ProductsContainer = ({ searchValue }) => {
   const getData = async () => {
     let API_URL;
     if (category) {
-      API_URL = `https://api.mercadolibre.com/sites/MLA/search?category=${category}`;
+      API_URL = `https://api.mercadolibre.com/sites/MLA/search?category=${category}&limit=50&offset=${currentPage}`;
     } else if (searchValue) {
-      API_URL = `https://api.mercadolibre.com/sites/MLA/search?q=${searchValue}`;
+      API_URL = `https://api.mercadolibre.com/sites/MLA/search?q=${searchValue}&limit=50&offset=${currentPage}`;
     } else {
-      API_URL =
-        "https://api.mercadolibre.com/sites/MLA/search?category=MLA1000";
+      API_URL = `https://api.mercadolibre.com/sites/MLA/search?category=MLA1000&limit=50&offset=${currentPage}`;
     }
 
     try {
@@ -34,11 +33,9 @@ export const ProductsContainer = ({ searchValue }) => {
   };
 
   useEffect(() => {
-    console.log("Category:", category);
-    console.log("Search Value:", searchValue);
     setIsloading(true);
     getData();
-  }, [category, searchValue]);
+  }, [category, searchValue, currentPage]);
 
   if (isLoading) {
     return (

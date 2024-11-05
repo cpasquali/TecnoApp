@@ -6,3 +6,4 @@ export * from "./Cart/ProductCartCard/ProductCartCard";
 export * from "./Cart/ModalCart/ModalCart";
 export * from "./Card/Card";
 export * from "../pages/LandingPage";
+export * from "./Paginacion/Paginacion";

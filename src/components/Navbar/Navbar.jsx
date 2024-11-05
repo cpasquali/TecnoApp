@@ -3,7 +3,7 @@ import { Link } from "wouter";
 import { SelectCategorContext } from "../../context/SelectCategoryProducts";
 import "./Navbar.css";
 
-export const Navbar = ({ setSearchValue }) => {
+export const Navbar = ({ setSearchValue, setCurrentPage }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [value, setValue] = useState("");
@@ -25,6 +25,7 @@ export const Navbar = ({ setSearchValue }) => {
   const handleHome = () => {
     setSearchValue("");
     setCategory(null);
+    setCurrentPage(1);
   };
 
   return (
@@ -65,6 +66,7 @@ export const Navbar = ({ setSearchValue }) => {
                 onClick={() => {
                   setCategory("MLA1002");
                   setIsOpen(false);
+                  setCurrentPage(1);
                 }}
               >
                 Televisores
@@ -73,6 +75,7 @@ export const Navbar = ({ setSearchValue }) => {
                 onClick={() => {
                   setCategory("MLA1051");
                   setIsOpen(false);
+                  setCurrentPage(1);
                 }}
               >
                 Teléfonos
@@ -81,6 +84,7 @@ export const Navbar = ({ setSearchValue }) => {
                 onClick={() => {
                   setCategory("MLA1039");
                   setIsOpen(false);
+                  setCurrentPage(1);
                 }}
               >
                 Audio y Video
@@ -89,6 +93,7 @@ export const Navbar = ({ setSearchValue }) => {
                 onClick={() => {
                   setCategory("MLA1692");
                   setIsOpen(false);
+                  setCurrentPage(1);
                 }}
               >
                 Componentes de PC

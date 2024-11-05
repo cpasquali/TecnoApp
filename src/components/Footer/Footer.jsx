@@ -8,7 +8,7 @@ export const Footer = () => {
         <div className="footer-section">
           <h4>Sobre Nosotros</h4>
           <p>
-            TecnoApp es tu tienda de tecnología en Villa Ramallo. Ofrecemos una
+            TecnoApp es tu tienda de tecnología en Argentina. Ofrecemos una
             amplia gama de productos electrónicos y gadgets.
           </p>
         </div>
