@@ -27,15 +27,21 @@ export const Paginacion = ({
     generarPaginacion();
   }, [pageValue]);
 
+  const handlePageChange = (page) => {
+    setPageValue(page);
+    setCurrentPage(page * 25);
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
   return (
     <div className="paginacion">
       {pages.map((page) => (
         <button
           key={page}
-          onClick={() => {
-            setPageValue(page);
-            setCurrentPage(page * 25);
-          }}
+          onClick={() => handlePageChange(page)}
           className={`paginacion-item ${
             pageValue === page ? "active-button" : ""
           }`}
