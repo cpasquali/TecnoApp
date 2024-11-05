@@ -22,10 +22,17 @@ export const Navbar = ({ setSearchValue, setCurrentPage }) => {
     setValue("");
   };
 
-  const handleHome = () => {
+  const resetToHome = () => {
     setSearchValue("");
     setCategory(null);
     setCurrentPage(1);
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
+  const resetToCart = () => {
     window.scrollTo({
       top: 0,
       behavior: "smooth",
@@ -52,7 +59,7 @@ export const Navbar = ({ setSearchValue, setCurrentPage }) => {
         </button>
       </div>
       <ul className={`nav-links ${menuOpen ? "open" : ""}`}>
-        <Link className="link" to="/home" onClick={handleHome}>
+        <Link className="link" to="/home" onClick={resetToHome}>
           INICIO
         </Link>
         <li>
@@ -105,7 +112,7 @@ export const Navbar = ({ setSearchValue, setCurrentPage }) => {
             </div>
           )}
         </li>
-        <Link className="link" to="/cart">
+        <Link className="link" to="/cart" onClick={resetToCart}>
           CARRITO
         </Link>
       </ul>
