@@ -26,6 +26,10 @@ export const Navbar = ({ setSearchValue, setCurrentPage }) => {
     setSearchValue("");
     setCategory(null);
     setCurrentPage(1);
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
   };
 
   return (
