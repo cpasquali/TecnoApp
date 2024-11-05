@@ -16,7 +16,11 @@ export const Layout = () => {
   const [location] = useLocation();
   const isRootLanding = location === "/";
   const isRootCart = location === "/cart";
-  const [currentPage, setCurrentPage] = useState(1);
+  const [currentPage, setCurrentPage] = useState(25);
+  const [pageValue, setPageValue] = useState(1);
+
+  console.log("page value: ", pageValue);
+  console.log("current page: ", currentPage);
 
   return (
     <div className="layout">
@@ -46,6 +50,8 @@ export const Layout = () => {
               <Paginacion
                 currentPage={currentPage}
                 setCurrentPage={setCurrentPage}
+                pageValue={pageValue}
+                setPageValue={setPageValue}
               />
             )}
           </div>

@@ -11,11 +11,11 @@ export const ProductsContainer = ({ searchValue, currentPage }) => {
   const getData = async () => {
     let API_URL;
     if (category) {
-      API_URL = `https://api.mercadolibre.com/sites/MLA/search?category=${category}&limit=50&offset=${currentPage}`;
+      API_URL = `https://api.mercadolibre.com/sites/MLA/search?category=${category}&limit=24&offset=${currentPage}`;
     } else if (searchValue) {
-      API_URL = `https://api.mercadolibre.com/sites/MLA/search?q=${searchValue}&limit=50&offset=${currentPage}`;
+      API_URL = `https://api.mercadolibre.com/sites/MLA/search?q=${searchValue}&limit=24&offset=${currentPage}`;
     } else {
-      API_URL = `https://api.mercadolibre.com/sites/MLA/search?category=MLA1000&limit=50&offset=${currentPage}`;
+      API_URL = `https://api.mercadolibre.com/sites/MLA/search?category=MLA1000&limit=24&offset=${currentPage}`;
     }
 
     try {
